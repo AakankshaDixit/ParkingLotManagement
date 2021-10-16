@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <h2 style="margin-top: 20px; margin-left: 20px;">PARK YOUR VEHICLE</h2>
+
+<form action"" method="post">{% csrf_token %}
+  <label style="margin-left: 20px;">Vehicle Type</label><br>
+
+
+<select name="VehicleType" required style="margin-left: 20px;">
+  <option value="Two Wheeler">Two Wheeler</option>
+  <option value="Four Wheeler">Four Wheeler</option>
+
+</select></br><br><br>
+  <label style="margin-left: 20px;" for="lname">Vehicle License:</label><br>
+  <input type="text"  name="VehicleLicense" value=" " required style="margin-left: 20px;"><br><br>
+  <input type="submit" value="Submit" style="background: darkolivegreen;margin-left: 20px;">
+</form> 
+
+<h4 style="margin-left: 20px;">Your Ticket number</h4>
+<table>
+{% for i in ST %}
+        <tr style="margin-left: 20px;">   
+            Ticketno: {{i.TicketNo}}</tr><br>
+            <tr style="margin-left: 20px;"> Parking Slot Number: {{i.ParkingSlotNo_id}}
+        </tr>
+        {% endfor %}
+      </table>
+
+      {%  ifequal error "yes" %}
+      <script>
+          alert('Slots are full for your Vehicle Type');
+      </script>
+      
+      {% endifequal %}
+    </body>
+</html>

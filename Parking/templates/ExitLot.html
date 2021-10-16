@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <h2 style="margin-left: 20px;">EXIT A LOT </h2>
+
+<form action"" method="post">{% csrf_token %}
+    <label style="margin-left: 20px;" for="lname">Enter your Ticket Number</label><br>
+    <input type="text"  name="TicketNo" value=" " required style="margin-left: 20px;"><br><br>
+    <input type="submit" value="Submit" style="margin-left: 20px; color: darkolivegreen;">
+
+</form> 
+{%  ifequal error "yes" %}
+      <script>
+          alert('Enter Correct Ticket Number');
+      </script>
+      
+      {% endifequal %}
+
+      {%  ifequal e "Slot is Exited" %}
+      <script>
+          alert('Slot has been exited');
+          window.location=('{% url 'home' %}');
+
+      </script>
+      
+      {% endifequal %}
+</body>
+</html>

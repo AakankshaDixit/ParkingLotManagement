@@ -1,0 +1,65 @@
+
+
+<html>
+    <head>
+        <style>
+            
+            td {
+             padding: 2px 15px;
+             }
+             th {
+    padding: 4px 15px;
+  }
+  table, th, td {
+            border: 1px solid black;
+         }
+        </style>
+    </head>
+    <body>
+      
+
+        <h2 style="margin-left: 20px;">VIEW TICKET HISTORY FOR THE VEHICLE</h2>
+
+<form method="post" action"">{% csrf_token %}
+    <label style="margin-left: 30px;" for="lname">Enter your License Number</label><br><br>
+    <input type="text"  name="LicenseNo" value="" required style="margin-left: 30px;"><br><br><br>
+    <input type="submit" value="Submit" style="margin-left: 30px;">
+
+</form> 
+
+
+<div class="view-container" style="max-width: 50x;">
+<table class="table table-hover"  style="background-color: rgb(182, 161, 161); margin-top: 60px; margin-left: 30px; ">
+    <thead>
+        <tr><th>Id</th>
+            <th>TicketNumber</th>
+            <th>License Number</th>
+            <th>Entry</th>
+            <th>Exit</th>
+            <th>Amount</th>
+            <th>SlotNo</th>
+        </tr>
+    
+    </thead>
+    <tbody>
+        {% for i in H %}
+        <tr>   
+            <td>{{i.id}}</td>
+            <td>{{i.TicketNo}}</td>
+            <td>{{i.VehicleLicense}}</td>
+            <td>{{i.EntryTime}}</td>
+            <td>{{i.ExitTime}}</td>
+            <td>{{i.Amount}}</td>
+            <td>{{i.ParkingSlotNo_id}}</td>
+        </tr>
+        {% endfor %}
+
+        
+    </table>
+</div>
+    <br><br><br>
+    <h4 style="margin-left: 30px;">Total Amount of your Tickets</h4>
+    <p style="margin-left: 30px;">{{j}}</p>
+</body>
+</html>
+

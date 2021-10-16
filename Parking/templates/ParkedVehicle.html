@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <style>
+            
+            td {
+             padding: 2px 15px;
+             }
+             th {
+    padding: 4px 15px;
+  }
+  table, th, td {
+            border: 1px solid black;
+         }
+        </style>
+    </head>
+
+    <body>
+        <h2 style="margin-left: 30px; margin-top: 30px; color: rgb(82, 82, 3);"> PARKED VEHICLES </h2>
+        <table class="table table-hover"  style="background-color:rgba(231, 223, 179, 0.856); margin-top: 50px; margin-left: 30px; ">
+            <thead>
+                    <th>TicketNumber</th>
+                    <th>License Number</th>
+                    <th>SlotNo</th>
+                </tr>
+            
+            </thead>
+            
+            <tbody>
+                {% for i in PV %}
+                <tr>   
+                    
+                    <td>{{i.TicketNo}}</td>
+                    <td>{{i.VehicleLicense}}</td>
+                    <td>{{i.ParkingSlotNo_id}}</td>
+                </tr>
+                {% endfor %}
+        
+                
+            </table>
+    </body>
+</html>
